@@ -35,8 +35,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+
+- Live Site URL: [First-JS](https://first-js-ruby.vercel.app/)
 
 ## My process
 
@@ -47,59 +47,110 @@ Users should be able to:
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
+- Javascript
 
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+I learnt how to implement javascript in my code, and make many other design layout
 
 To see how you can add code snippets, see below:
 
 ```html
-<h1>Some HTML code I'm proud of</h1>
+
+<div id="sharePopup" class="share-popup">
+    <span>Share</span>
+    <img src="Assets/icon-facebook.svg" alt="Facebook Logo">
+    <img src="Assets/icon-twitter.svg" alt="Twitter Logo">
+    <img src="Assets/icon-pinterest.svg" alt="Pinterest Logo">
+</div>
 ```
 ```css
-.proud-of-this-css {
-  color: papayawhip;
+
+.share-btn{
+    border: none;
+    padding: 100%;
+    border-radius: 50%;
+    background-color:  hsl(210, 46%, 95%);
+    width: 2%;
+    height: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -50%;
+    margin-top: 40%;
+}
+
+.share-popup{
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: auto;
+    border-radius: 0 0 10px 10px;
+    justify-content: center;
+    position: absolute;
+    padding: 9%;
+    gap: 10%;
+
+    pointer-events: none;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.share-popup::after {
+  display: none;
+}
+
+.share-popup.active{
+    visibility: visible;
+    opacity: 1;
+    background-color: hsl(217, 19%, 35%);
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+
+.share-btn.active{
+      background-color:  hsl(210, 46%, 95%);
+}
+
+.share-btn {
+    position: relative;
+    z-index: 5;
+
 }
 ```
 ```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
-```
+const shareBtn = document.getElementById("shareBtn");
+const sharePopup = document.getElementById('sharePopup');
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+shareBtn.addEventListener('click', (event) => {
+    event.stopPropagation();
+    sharePopup.classList.toggle("active");
+    shareBtn.classList.toggle("active");
+});
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+document.addEventListener('click', (event) => {
+    if(!sharePopup.contains(event.target) && !shareBtn.contains(event.target));
+    sharePopup.classList.remove("active");
+    shareBtn.classList.remove("active");
+});```
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+I am not really good with javascript, I will try to improve and be my best.
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [chatgpt](https://https://chatgpt.com) - This did almost everything for me.
 
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
 
 ## Author
+- Frontend Mentor - [@Wizdev0](https://www.frontendmentor.io/profile/Wizdev0)
+- Twitter - [@otutech](https://www.twitter.com/otutech)
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
 
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
 
-## Acknowledgments
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
 
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
